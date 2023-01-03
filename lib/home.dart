@@ -1,16 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(title: const Text("Home page"),centerTitle: true,),
-        body: 
-        Container()
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Go through metro',
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: ListView.builder(
+            itemCount: 5,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: ListTile(
+                    shape: RoundedRectangleBorder(
+                      //<-- SEE HERE
+                      side: BorderSide(width: 2),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    leading: const Icon(Icons.face),
+                    trailing: const Icon(Icons.add),
+                    title: Text("Person ${index + 1}")),
+
+              );
+            }),
       ),
     );
   }

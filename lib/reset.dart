@@ -10,8 +10,6 @@ class Reset extends StatefulWidget {
 }
 
 class _ResetState extends State<Reset> {
-  final List<String> month = <String>['sep', 'oct', 'dec'];
-  String dropdownValue = '2022';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

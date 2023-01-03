@@ -4,8 +4,14 @@ import 'package:letsgo/home.dart';
 import 'package:letsgo/signup.dart';
 
  
-void main() => runApp(const MyApp());
- 
+void main() {
+      runApp(
+        MaterialApp(
+          home: Home(),
+        ),
+      );
+    }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
  
