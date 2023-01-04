@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:letsgo/home.dart';
 import 'package:swipebuttonflutter/swipebuttonflutter.dart';
 import 'package:intl/intl.dart';
 
@@ -85,7 +86,14 @@ class _RideState extends State<Ride> {
         ),
         Padding(
           padding: const EdgeInsets.all(30.0),
-          child: SwipingButton(text: "Swipe To GO", onSwipeCallback:(){},backgroundColor: Colors.blue,swipeButtonColor: Colors.white,iconColor: Colors.blue,),
+          child: SwipingButton(text: "Swipe To GO", onSwipeCallback:(){
+            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Home(),
+                        ),
+                      );
+          },backgroundColor: Colors.blue,swipeButtonColor: Colors.white,iconColor: Colors.blue,),
         )
 
         ],
