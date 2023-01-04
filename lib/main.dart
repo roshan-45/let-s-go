@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:letsgo/firstpage.dart';
 import 'package:letsgo/forgot.dart';
 import 'package:letsgo/home.dart';
 import 'package:letsgo/metrowait.dart';
@@ -8,6 +9,7 @@ import 'package:letsgo/signup.dart';
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MyApp(),
     ),
   );
@@ -48,7 +50,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         child: ListView(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(65.0),
+              padding: const EdgeInsets.all(90.0),
               child: Container(
                 width: 200,
                 height: 200,
@@ -111,7 +113,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Ride(),
+                          builder: (context) => First(),
                         ),
                       );
                   },

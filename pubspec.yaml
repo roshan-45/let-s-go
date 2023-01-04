@@ -38,8 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_otp_text_field: 
   intl: ^0.17.0
-  google_maps_flutter: ^2.0.1
   swipebuttonflutter:
+  google_maps_flutter: 
 
 dev_dependencies:
   flutter_test:
