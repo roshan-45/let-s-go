@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:letsgo/forgot.dart';
 import 'package:letsgo/home.dart';
+import 'package:letsgo/metrowait.dart';
+import 'package:letsgo/ride.dart';
 import 'package:letsgo/signup.dart';
 
  
