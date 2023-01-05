@@ -40,6 +40,11 @@ dependencies:
   intl: ^0.17.0
   swipebuttonflutter:
   google_maps_flutter: 
+  flutter_map: ^3.1.0
+  syncfusion_flutter_maps:
+  firebase_core: ^2.4.1
+  firebase_auth: ^4.2.4
+  flutterfire_ui: ^0.4.3+20
 
 dev_dependencies:
   flutter_test:
