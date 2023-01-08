@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:letsgo/createprofile.dart';
 import 'package:letsgo/firstpage.dart';
 import 'package:letsgo/forgot.dart';
 import 'package:letsgo/home.dart';
@@ -16,7 +17,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(CreateProfile());
 }
 
 class MyApp extends StatelessWidget {
