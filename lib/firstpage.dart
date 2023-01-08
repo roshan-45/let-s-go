@@ -6,7 +6,10 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart' as latLng;
+import 'package:letsgo/extraSeat.dart';
 import 'package:letsgo/metrowait.dart';
+import 'package:letsgo/needRide.dart';
+import 'package:letsgo/profile.dart';
 import 'package:letsgo/ride.dart';
 
 class First extends StatelessWidget {
@@ -19,6 +22,26 @@ class First extends StatelessWidget {
         drawer: Drawer(
             child: ListView(
           children: [
+            ListTile(
+              title: Text("Profile"),
+              trailing: Icon(Icons.person),
+              onTap: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profile(),
+                  ),
+                );
+                //await FirebaseAuth.instance.signOut();
+              },
+            ),
+            ListTile(
+              title: Text("Previous Rides"),
+              trailing: Icon(Icons.history),
+              onTap: () async {
+                //await FirebaseAuth.instance.signOut();
+              },
+            ),
             ListTile(
               title: Text("Logout"),
               trailing: Icon(Icons.power_settings_new_outlined),
@@ -82,11 +105,11 @@ class First extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Ride(),
+                              builder: (context) => ExtraSeat(),
                             ),
                           );
                         },
-                        tileColor: Color.fromARGB(255, 172, 244, 255),
+                        tileColor: Color.fromARGB(255, 121, 188, 198),
                         shape: RoundedRectangleBorder(
                           side: BorderSide(
                             color: Colors.black,
@@ -105,7 +128,7 @@ class First extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Ride(),
+                              builder: (context) => NeedRide(),
                             ),
                           );
                         },
