@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:letsgo/firstpage.dart';
 import 'package:letsgo/forgot.dart';
@@ -7,6 +8,7 @@ import 'package:letsgo/ride.dart';
 import 'package:letsgo/signInScreen.dart';
 import 'package:letsgo/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:letsgo/splash.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -24,11 +26,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        body: const SignInPage(),
+        body: StreamBuilder<User?>(
+          stream: FirebaseAuth.instance.authStateChanges(),
+          // If the user is already signed-in, use it as initial data
+          initialData: FirebaseAuth.instance.currentUser,
+          builder: (context, snapshot) {
+            // User is not signed in
+            if (!snapshot.hasData) {
+              return Splash();
+            }
+
+            // Render your application if authenticated
+            return SignInPage();
+          },
+        ),
       ),
     );
   }
