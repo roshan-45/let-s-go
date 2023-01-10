@@ -48,8 +48,10 @@ dependencies:
   geolocator: ^8.2.0
   geocoding: ^2.0.4
   cloud_firestore: ^4.3.1
-  image_picker: ^0.4.5
-  image_cropper: ^0.0.4
+  image_picker: 
+  image_cropper: 
+  flutter_bloc: 
+  equatable: 
 
 dev_dependencies:
   flutter_test:
