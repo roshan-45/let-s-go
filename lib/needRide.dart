@@ -69,6 +69,7 @@ class _NeedRideState extends State<NeedRide> {
                 value.docs.forEach((element) {
                   l.add(element.data());
                 });
+                //print(l);
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(

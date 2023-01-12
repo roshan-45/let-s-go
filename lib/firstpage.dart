@@ -6,6 +6,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart' as latLng;
+import 'package:letsgo/auto.dart';
+import 'package:letsgo/createprofile.dart';
 import 'package:letsgo/extraSeat.dart';
 import 'package:letsgo/metrowait.dart';
 import 'package:letsgo/needRide.dart';
@@ -14,6 +16,8 @@ import 'package:letsgo/ride.dart';
 
 class First extends StatelessWidget {
   const First({super.key});
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,7 @@ class First extends StatelessWidget {
                 //await FirebaseAuth.instance.signOut();
               },
             ),
+            
             ListTile(
               title: Text("Previous Rides"),
               trailing: Icon(Icons.history),
@@ -147,7 +152,7 @@ class First extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Metro(),
+                              builder: (context) =>Auto(),
                             ),
                           );
                         },

@@ -17,7 +17,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(CreateProfile());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

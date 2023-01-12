@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -8,6 +10,7 @@ class Rides extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       appBar: AppBar(title: Text('Available Rides')),
       body: SafeArea(
@@ -25,54 +28,61 @@ class Rides extends StatelessWidget {
                       backgroundImage: AssetImage('assets/profile.jpg'),
                     ),
                   ),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          list[index]['rider'],
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  SizedBox(
+                    
+                    
+                    width: MediaQuery.of(context).size.width-170,
+                    child: Expanded(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'From: ',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                              list[index]['rider'],
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold,overflow: TextOverflow.ellipsis),
                             ),
-                            Text(
-                              list[index]['start'],
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'From: ',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  list[index]['start'],
+                                  style: TextStyle(overflow: TextOverflow.fade),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              'To: ',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'To: ',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  list[index]['to'],
+                                  style: TextStyle(overflow: TextOverflow.fade),
+                                ),
+                              ],
                             ),
-                            Text(
-                              list[index]['to'],
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Timings: ',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  list[index]['time'],
+                                  style: TextStyle(overflow: TextOverflow.fade),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              'Timings: ',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              list[index]['time'],
-                              style: TextStyle(overflow: TextOverflow.ellipsis),
-                            ),
-                          ],
-                        ),
-                      ]),
+                          ]),
+                    ),
+                  ),
                   IconButton(
                       onPressed: () {
                         showDialog<String>(

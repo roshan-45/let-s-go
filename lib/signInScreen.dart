@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutterfire_ui/auth.dart';
 import 'package:letsgo/firstpage.dart';
+import 'package:letsgo/loadingPage.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -25,7 +26,7 @@ class SignInPage extends StatelessWidget {
         }
 
         // Render your application if authenticated
-        return First();
+        return LoadingPage();
       },
     );
   }
