@@ -12,8 +12,8 @@ import 'package:image_picker/image_picker.dart';
 
 import 'firstpage.dart';
 
-class CreateProfile extends StatelessWidget {
-  const CreateProfile({super.key});
+class Editprofile extends StatelessWidget {
+  const Editprofile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -251,10 +251,9 @@ String? downUrl;
                             'vehiclename': vehicle.text,
                             'image': downUrl,
                             'number':number.text,
-                            'createdAt':Timestamp.now(),
                           }).then((name) {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text('Created Successfully')));
+                                content: Text('Edited Successfully')));
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -268,7 +267,7 @@ String? downUrl;
                           });
                         }
                       },
-                      child: const Text("CREATE"))),
+                      child: const Text("EDIT"))),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

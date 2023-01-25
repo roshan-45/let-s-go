@@ -9,8 +9,8 @@ import 'package:latlong2/latlong.dart' as latLng;
 import 'package:letsgo/auto.dart';
 import 'package:letsgo/createprofile.dart';
 import 'package:letsgo/extraSeat.dart';
-import 'package:letsgo/metrowait.dart';
 import 'package:letsgo/needRide.dart';
+import 'package:letsgo/previous.dart';
 import 'package:letsgo/profile.dart';
 import 'package:letsgo/ride.dart';
 
@@ -44,7 +44,12 @@ class First extends StatelessWidget {
               title: Text("Previous Rides"),
               trailing: Icon(Icons.history),
               onTap: () async {
-                //await FirebaseAuth.instance.signOut();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Previous(),
+                  ),
+                );
               },
             ),
             ListTile(
@@ -125,6 +130,7 @@ class First extends StatelessWidget {
                         ),
                       ),
                     ),
+                    //Divider(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
@@ -144,17 +150,14 @@ class First extends StatelessWidget {
                         ),
                       ),
                     ),
+                    //Divider(),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ListTile(
                         title: Center(child: Text("Go to metro by auto")),
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>Auto(),
-                            ),
-                          );
+                          
+                          
                         },
                         tileColor: Color.fromARGB(255, 172, 244, 255),
                         shape: RoundedRectangleBorder(
@@ -171,3 +174,4 @@ class First extends StatelessWidget {
         ));
   }
 }
+

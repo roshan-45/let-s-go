@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:letsgo/createprofile.dart';
+import 'package:letsgo/edit.dart';
 import 'package:letsgo/extraSeat.dart';
 import 'package:letsgo/updateprofile.dart';
 
@@ -29,7 +31,9 @@ class _ProfileState extends State<Profile> {
 
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  Details(BuildContext context)async {
+  Details() async{
+    //.orderBy('createdAt',descending: true)
+    
       await firestore.collection('users').where('email',isEqualTo: user?.email).get().then((value) {
         //print(user?.email);
         List l = [];
@@ -45,18 +49,40 @@ class _ProfileState extends State<Profile> {
                 email = l[0]['email'];
                 address = l[0]['address'];
                 image = l[0]['image'];
+                if(image==null){
+                  image = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
+                }
                 vehicle = l[0]['vehicle'];
                 number = l[0]['number'];
+                setState(() {
+                  
+                });
                 //print(image);
               });
    }
+
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Details();
+  }
   
   
   @override
   Widget build(BuildContext context) {
-    Details(context);
+    
     return Scaffold(
-      body: SafeArea(
+      appBar: AppBar(title: Text('Profile'), actions: [IconButton(onPressed: () {
+        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Editprofile(),
+                            ),
+                          );
+      }, icon: Icon(Icons.edit))],),
+      body: name==null?Center(child: CircularProgressIndicator(),):SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Center(
@@ -65,19 +91,17 @@ class _ProfileState extends State<Profile> {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    //backgroundImage: NetworkImage(image!),
+                    backgroundImage: NetworkImage(image!),
                   ),
-                  SizedBox(
-                    height: 75,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(name!, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                   ),
-                  ListTile(
-                    title: Text("Name   :"),
-                    trailing: Text("${name}"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(usn!, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                   ),
-                  ListTile(
-                    title: Text("USN   :"),
-                    trailing: Text("${usn}"),
-                  ),
+                  Divider(),
                   ListTile(
                     title: Text("Number   :"),
                     trailing: Text("${number}"),

@@ -42,7 +42,8 @@ class Auto extends StatelessWidget {
           if(map?.length==2){
             status='completed';
           }
-          map!.add(user?.email);
+          if(!map!.contains(user?.email)){
+          map!.add(user?.email);}
              print(map);
              print(arr);
             firestore.collection('waitingRooms').doc(id).set({

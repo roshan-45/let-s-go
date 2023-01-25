@@ -4,7 +4,6 @@ import 'package:letsgo/createprofile.dart';
 import 'package:letsgo/firstpage.dart';
 import 'package:letsgo/forgot.dart';
 import 'package:letsgo/home.dart';
-import 'package:letsgo/metrowait.dart';
 import 'package:letsgo/ride.dart';
 import 'package:letsgo/signInScreen.dart';
 import 'package:letsgo/signup.dart';
